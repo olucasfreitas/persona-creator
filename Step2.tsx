@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
+import { Input } from "native-base";
 
 export default function Step2() {
   const [age, setAge] = useState<string>();
@@ -10,38 +11,48 @@ export default function Step2() {
 
   return (
     <View style={styles.container}>
-      <Text>Dados Pessoais</Text>
+      <Text style={styles.title}>Dados Pessoais</Text>
 
-      <TextInput
-        style={styles.input}
+      <Input
+        mx="3"
+        w="75%"
+        maxWidth="300px"
         onChangeText={(value) => setAge(value)}
         value={age}
         placeholder="Idade"
         keyboardType="numeric"
       />
-      <TextInput
-        style={styles.input}
+      <Input
+        mx="3"
+        w="75%"
+        maxWidth="300px"
         onChangeText={(value) => setGender(value)}
         value={gender}
         placeholder="Sexo"
         keyboardType="default"
       />
-      <TextInput
-        style={styles.input}
+      <Input
+        mx="3"
+        w="75%"
+        maxWidth="300px"
         onChangeText={(value) => setSchooling(value)}
         value={schooling}
         placeholder="Escolaridade"
         keyboardType="default"
       />
-      <TextInput
-        style={styles.input}
+      <Input
+        mx="3"
+        w="75%"
+        maxWidth="300px"
         onChangeText={(value) => setPhone(value)}
         value={phone}
         placeholder="Telefone"
         keyboardType="number-pad"
       />
-      <TextInput
-        style={styles.input}
+      <Input
+        mx="3"
+        w="75%"
+        maxWidth="300px"
         onChangeText={(value) => setEmail(value)}
         value={email}
         placeholder="Email"
@@ -56,18 +67,11 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     flex: 1,
   },
-  titulo: {
+  title: {
     fontSize: 32,
     marginBottom: 10,
-  },
-  input: {
-    height: 40,
-    width: 300,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
   },
 });

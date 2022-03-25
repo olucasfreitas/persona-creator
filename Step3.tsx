@@ -1,41 +1,46 @@
-import { useState } from "react";
+import React from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
-import { Select } from "native-base";
+import { Select, Input } from "native-base";
 
 export default function Step3() {
-  const [sector, setSector] = useState<string>();
-  const [position, setPosition] = useState<string>();
-  const [boss, setBoss] = useState<string>();
+  const [sector, setSector] = React.useState<string>();
+  const [position, setPosition] = React.useState<string>();
+  const [boss, setBoss] = React.useState<string>();
 
   return (
     <View style={styles.container}>
-      <Text>Poscionamento</Text>
+      <Text style={styles.title}>Poscionamento</Text>
 
-      <TextInput
-        style={styles.input}
-        onChangeText={(value) => setSector(value)}
+      <Input
+        mx="3"
+        w="75%"
+        maxWidth="300px"
+        onChangeText={(value: string) => setSector(value)}
         value={sector}
         placeholder="Setor"
         keyboardType="numeric"
       />
-      <TextInput
-        style={styles.input}
-        onChangeText={(value) => setPosition(value)}
+      <Input
+        mx="3"
+        w="75%"
+        maxWidth="300px"
+        onChangeText={(value: string) => setPosition(value)}
         value={position}
         placeholder="Posição na empresa"
         keyboardType="default"
       />
       <Select
-        style={styles.input}
+        mx="3"
+        w="75%"
+        maxWidth="300px"
         selectedValue={boss}
-        minWidth="200"
-        placeholder="Choose Service"
+        placeholder="Escolha um superior"
         mt={1}
         onValueChange={(itemValue) => setBoss(itemValue)}
       >
-        <Select.Item label="CEO" key="CEO" value="CEO" />
-        <Select.Item label="Diretor" key="Diretor" value="Diretor" />
-        <Select.Item label="Presidente" key="Presidente" value="Presidente" />
+        <Select.Item label="CEO" value="CEO" />
+        <Select.Item label="diretor" value="diretor" />
+        <Select.Item label="presidente" value="presidente" />
       </Select>
     </View>
   );
@@ -46,18 +51,11 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     flex: 1,
   },
-  titulo: {
+  title: {
     fontSize: 32,
     marginBottom: 10,
-  },
-  input: {
-    height: 40,
-    width: 300,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
   },
 });
